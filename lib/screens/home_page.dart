@@ -12,6 +12,20 @@ class _HomePageState extends State<HomePage> {
   final Color cardColor = Color(0xff28293D);
   bool isClicked = false;
   int _value = 0;
+  int _wight = 30;
+  int _age = 10;
+
+
+  void calculateBMI(){
+    double height =  _value/ 100;
+    double weight = _wight.toDouble();
+    // We dived height by 100 because we are taking the height in centimeter
+    // and formula takes height in meter.
+
+    double heightSquare = height * height;
+    double result = weight / heightSquare;
+    print("BMI: ${result}");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -154,22 +168,30 @@ class _HomePageState extends State<HomePage> {
                               "Weight",
                               style: TextStyle(color: Colors.white, fontSize: 14),
                             ),
-                            const Text(
-                              "60",
+                             Text(
+                              "${_wight}",
                               style: TextStyle(color: Colors.white, fontSize: 26),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 FloatingActionButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    setState(() {
+                                      _wight++;
+                                    });
+                                  },
                                   mini: true,
                                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
                                   backgroundColor: Colors.blueGrey,
                                   child: Icon(Icons.add, color: Colors.white),
                                 ),
                                 FloatingActionButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    setState(() {
+                                      _wight--;
+                                    });
+                                  },
                                   mini: true,
                                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
                                   backgroundColor: Colors.blueGrey,
@@ -188,25 +210,33 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             const Text(
-                              "Weight",
+                              "Age",
                               style: TextStyle(color: Colors.white, fontSize: 14),
                             ),
-                            const Text(
-                              "60",
+                            Text(
+                              "${_age}",
                               style: TextStyle(color: Colors.white, fontSize: 26),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 FloatingActionButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    setState(() {
+                                      _age++;
+                                    });
+                                  },
                                   mini: true,
                                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
                                   backgroundColor: Colors.blueGrey,
                                   child: Icon(Icons.add, color: Colors.white),
                                 ),
                                 FloatingActionButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    setState(() {
+                                      _age--;
+                                    });
+                                  },
                                   mini: true,
                                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
                                   backgroundColor: Colors.blueGrey,
@@ -225,10 +255,15 @@ class _HomePageState extends State<HomePage> {
             ),
              Expanded(
                 flex: 1,
-                child: Container(
-                  decoration: BoxDecoration(color: Colors.pink, borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))),
-                  child: Center(
-                    child: Text("Calculate", style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),),
+                child: InkWell(
+                  onTap: (){
+                    calculateBMI();
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(color: Colors.pink, borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+                    child: Center(
+                      child: Text("Calculate", style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),),
+                    ),
                   ),
                 ))
           ],
