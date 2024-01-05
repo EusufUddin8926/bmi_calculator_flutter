@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
         color: bgColor,
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Expanded(
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
                                 color: isClicked == false
                                     ? Colors.white
                                     : Colors.white),
-                            Text(
+                            const Text(
                               "Male",
                               style: TextStyle(color: Colors.white),
                             ),
@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                                 color: isClicked == false
                                     ? Colors.white
                                     : Colors.white),
-                            Text(
+                            const Text(
                               "Female",
                               style: TextStyle(color: Colors.white),
                             )
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Height",
+                      const Text("Height",
                           style: TextStyle(color: Colors.white, fontSize: 24)),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -100,15 +100,15 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           Text(
                             "${_value}",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 26,
                                 fontWeight: FontWeight.bold),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 2,
                           ),
-                          Text(
+                          const Text(
                             "cm",
                             style: TextStyle(
                                 color: Colors.white,
@@ -121,7 +121,7 @@ class _HomePageState extends State<HomePage> {
                           min: 0,
                           max: 200,
                           thumbColor: Colors.cyan,
-                          activeColor: Colors.pink,
+                          activeColor: Colors.white,
                           inactiveColor: Colors.blueGrey,
                           value: _value.toDouble(),
                           onChanged: (double newValue) {
@@ -134,13 +134,80 @@ class _HomePageState extends State<HomePage> {
                 )),
             Expanded(
                 flex: 3,
-                child: Container(
-                  decoration: const BoxDecoration(color: Colors.pink),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: Card(
+                        color: cardColor,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Weight",
+                              style: TextStyle(color: Colors.white, fontSize: 14),
+                            ),
+                            const Text(
+                              "60",
+                              style: TextStyle(color: Colors.white, fontSize: 26),
+                            ),
+                            FloatingActionButton(
+                              onPressed: () {},
+                              mini: true,
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+                              backgroundColor: Colors.blueGrey,
+                              child: Icon(Icons.add, color: Colors.white),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Card(
+                        color: cardColor,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Weight",
+                              style: TextStyle(color: Colors.white, fontSize: 14),
+                            ),
+                            const Text(
+                              "60",
+                              style: TextStyle(color: Colors.white, fontSize: 26),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                FloatingActionButton(
+                                  onPressed: () {},
+                                  mini: true,
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+                                  backgroundColor: Colors.blueGrey,
+                                  child: Icon(Icons.add, color: Colors.white),
+                                ),
+                                FloatingActionButton(
+                                  onPressed: () {},
+                                  mini: true,
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+                                  backgroundColor: Colors.blueGrey,
+                                  child: Icon(Icons.remove, color: Colors.white),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 )),
-            Expanded(
+             Expanded(
                 flex: 1,
                 child: Container(
-                  decoration: const BoxDecoration(color: Colors.blueGrey),
+                  decoration: BoxDecoration(color: Colors.pink, borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+                  child: Center(
+                    child: Text("Calculate", style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),),
+                  ),
                 ))
           ],
         ),
