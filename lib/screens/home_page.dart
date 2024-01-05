@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.cyan,
       ),
       body: Container(
+        padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
         color: bgColor,
         child: Column(
           children: [
@@ -84,6 +85,9 @@ class _HomePageState extends State<HomePage> {
                     ))
                   ],
                 )),
+            const SizedBox(
+              height: 10,
+            ),
             Expanded(
                 flex: 3,
                 child: Card(
@@ -132,6 +136,9 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 )),
+            const SizedBox(
+              height: 10,
+            ),
             Expanded(
                 flex: 3,
                 child: Row(
@@ -151,12 +158,24 @@ class _HomePageState extends State<HomePage> {
                               "60",
                               style: TextStyle(color: Colors.white, fontSize: 26),
                             ),
-                            FloatingActionButton(
-                              onPressed: () {},
-                              mini: true,
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
-                              backgroundColor: Colors.blueGrey,
-                              child: Icon(Icons.add, color: Colors.white),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                FloatingActionButton(
+                                  onPressed: () {},
+                                  mini: true,
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+                                  backgroundColor: Colors.blueGrey,
+                                  child: Icon(Icons.add, color: Colors.white),
+                                ),
+                                FloatingActionButton(
+                                  onPressed: () {},
+                                  mini: true,
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+                                  backgroundColor: Colors.blueGrey,
+                                  child: Icon(Icons.remove, color: Colors.white),
+                                ),
+                              ],
                             )
                           ],
                         ),
@@ -201,6 +220,9 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ],
                 )),
+            const SizedBox(
+              height: 10,
+            ),
              Expanded(
                 flex: 1,
                 child: Container(
